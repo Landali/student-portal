@@ -9,27 +9,30 @@ import Layout from './containers/layout'
 import CreateStudent from './containers/createstudent'
 import ViewStudents from './containers/viewstudent'
 import ViewDiploma from './containers/studentDiploma'
+import PrivateRoute from './components/PrivateRoute'
 class App extends Component {
   state = {
-
+    user: {}
   }
 
+
   render() {
+    console.log('get user', this.state.user)
     return (
       <Router>
-      <div className="App">
-        <div className="auth-wrapper">
-          <div className="auth-inner">
-            <Switch>
-              <Route exact path='/' component={Layout} />
-              <Route exact path='/sign-up' component={SignUp} />
-              <Route exact path='/create-student' component={CreateStudent} />
-              <Route exact path='/view-student' component={ViewStudents} />
-              <Route path='/view-diploma/:id' component={ViewDiploma} />
-            </Switch>
+        <div className="App">
+          <div className="auth-wrapper">
+            <div className="auth-inner">
+              <Switch>
+                <Route exact path='/' component={Layout} />
+                <Route exact path='/sign-up' component={SignUp} />
+                <PrivateRoute exact path='/view-student' component={ViewStudents} />
+                <PrivateRoute exact path='/create-student' component={CreateStudent} />
+                <PrivateRoute path='/view-diploma/:id' component={ViewDiploma} />
+              </Switch>
+            </div>
           </div>
-        </div>
-      </div></Router>
+        </div></Router>
     )
   }
 }

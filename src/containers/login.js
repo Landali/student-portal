@@ -12,7 +12,7 @@ class Login extends Component {
         this.state = {
             username: '',
             password: '',
-            cookieExpiration: 100000*120,
+            cookieExpiration: 100000 * 120,
         }
 
     }
@@ -45,7 +45,7 @@ class Login extends Component {
             await login({ username, password }).then((user) => {
                 console.log('User Login!', user)
                 if (user) {
-                    cookies.set(`${username}ct`, { key: user.username }, { path: '/', expires: new Date(Date.now() + cookieExpiration ) });
+                    cookies.set('manstuporct', { key: user.username }, { path: '/', expires: new Date(Date.now() + cookieExpiration) });
                     const origin = window.location.origin
                     window.location.replace(`${origin}/view-student`)
                 }

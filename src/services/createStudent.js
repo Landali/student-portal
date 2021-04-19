@@ -7,7 +7,6 @@ const createStudent = ({
     source
 }) => axios
     .post(`https://dvtbccva71.execute-api.us-east-1.amazonaws.com/dev/create-student/${firstname}`, {
-        cancelToken: source.token,
         firstname,
         lastname
     }).then((student) => {

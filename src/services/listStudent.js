@@ -2,9 +2,7 @@ import axios from 'axios'
 const listStudent = ({
     source
 }) => axios
-    .get('https://dvtbccva71.execute-api.us-east-1.amazonaws.com/dev/list-student', {
-        cancelToken: source.token
-    }).then((students) => {
+    .get('https://dvtbccva71.execute-api.us-east-1.amazonaws.com/dev/list-student').then((students) => {
         console.debug('Students retrieved successfully', students)
         return Promise.resolve(students.data.studentList || [])
     })

@@ -6,9 +6,7 @@ const getStudent = ({
     ID,
     source
 }) => axios
-    .get(`https://dvtbccva71.execute-api.us-east-1.amazonaws.com/dev/get-student/${ID}`, {
-        cancelToken: source.token
-    }).then((student) => {
+    .get(`https://dvtbccva71.execute-api.us-east-1.amazonaws.com/dev/get-student/${ID}`).then((student) => {
         console.debug('Student retrieved successfully', student)
         return Promise.resolve(student.data.student || {})
     })

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import '../css/signup.css'
 import FormInput from '../components/FormInputs/formInput'
 import FormButton from '../components/FormButton/formButton'
-
+import createUser from '../services/createUser'
 class signup extends Component {
     constructor(props) {
         super(props)
@@ -58,10 +58,18 @@ class signup extends Component {
         console.log("password", password)
         if (password !== repeatPassword) {
             console.log("password arent the same")
-             // Add Notification for repeated password
+            // Add Notification for repeated password
         } else {
-            const origin = window.location.origin
-            window.location.replace(`${origin}`)
+            await createUser({ username, password }).then((user) => {
+                console.log('User Created!')
+                if (user.data.newUser) {
+                    const origin = window.location.origin
+                    window.location.replace(`${origin}`)
+                }
+            }).catch((error) => {
+                console.error('Creating user error:', error)
+            })
+
         }
 
     }

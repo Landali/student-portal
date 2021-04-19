@@ -13,16 +13,6 @@ class signup extends Component {
         }
     }
 
-    /**
-     * * Used for username input only
-     * * General:
-     * @param value gets the captured input target value.
-     * * value.replace, all chars that arent letters will be replaced with " ".
-     * * Input(Handles) Functions:
-     * @param updateField used to handle the onChange event in the username input.
-     * @param handlePassword used to handle the onChange event in the password input.
-     * @param handleRepeatPassword used to handle the onChange event in the repeat password input.
-     */
     updateField = (e) => {
         let value = e.target.value;
         value = value.replace(/[^A-Za-z]/gi, "");
@@ -43,13 +33,6 @@ class signup extends Component {
         })
     }
 
-    /**
-     * * This function handles the form onSubmit event.
-     * @param handleRegisterSubmit when register button is click it will create a new user.
-     * *Variables:
-     * @param e.preventDefault prevents the inputs from loosing its current values (only used while testing functionality).
-     * 
-     */
 
     handleRegisterSubmit = async (e) => {
         let { username, password, repeatPassword } = this.state
@@ -87,19 +70,8 @@ class signup extends Component {
             repeatPassword
         } = this.state
 
-        /**
-         ** Controls
-         *@param usernameInput displays a form input for the username.
-         *@param passwordInput displays a form input for the password.
-         *@param repeatPasswordInput displays a form input to repeat password and validate if password is correct.
-         *@param buttonLogin displays form submit button.
-         ** All input and button props will be explain inside each component:
-         *@param FormInput
-         *@param FormButton
-         */
-
         let usernameInput = <FormInput
-            inputContainerId={"registerInput"}
+            inputContainerId={"signUpInput"}
             inputContainerClass={"input-field"}
             inputValue={username}
             inputType={"user"}
@@ -113,7 +85,7 @@ class signup extends Component {
         />
 
         let passwordInput = <FormInput
-            inputContainerId={"registerInput"}
+            inputContainerId={"signUpInput"}
             inputContainerClass={"input-field"}
             inputValue={password}
             inputType={"password"}
@@ -127,7 +99,7 @@ class signup extends Component {
         />
 
         let repeatPasswordInput = <FormInput
-            inputContainerId={"registerInput"}
+            inputContainerId={"signUpInput"}
             inputContainerClass={"input-field"}
             inputValue={repeatPassword}
             inputType={"password"}
@@ -141,7 +113,7 @@ class signup extends Component {
         />
 
         let registerButton = <FormButton
-            buttonId={"registerButton"}
+            buttonId={"signUpButton"}
             buttonClass={"btn btn-lg btn-primary btn-block text-uppercase"}
             buttonType={"submit"}
             buttonText={"Sign Up"}
@@ -150,14 +122,14 @@ class signup extends Component {
         />
 
         return (
-            <div id="registerContainer" >
+            <div id="signupContainer" >
                 <div className="container" >
                     <div className="row">
                         <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                            <div id="cardRegister" className="card card-signin register my-5">
+                            <div id="cardSignUp" className="card card-signin signUpUser my-5">
                                 <div className="card-body">
                                     <h5 className="card-title text-center">Sign Up</h5>
-                                    <form id="registerForm" onSubmit={this.handleRegisterSubmit} className="form-signin">
+                                    <form id="signUpForm" onSubmit={this.handleRegisterSubmit} className="form-signin">
                                         {usernameInput}
                                         {passwordInput}
                                         {repeatPasswordInput}

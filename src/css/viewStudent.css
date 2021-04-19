@@ -1,0 +1,81 @@
+:root {
+    --input-padding-x: 1.5rem;
+    --input-padding-y: .75rem; 
+  }
+  
+  #cardViewStudent{
+    border: 4px solid;
+    border-image-source: linear-gradient(45deg, #00DED6, #7979F7);
+    border-image-slice: 1;
+  }
+
+  .inputToolTip{
+    background: linear-gradient(to right, #00DED6, #7979F7);
+  
+  }
+  .card-signin.viewStudent {
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  #cardViewStudent .card-title {
+    margin-bottom: 2rem;
+    font-weight: 300;
+    font-size: 1.5rem;
+  }
+  
+  #cardViewStudent .card-body {
+    padding: 2rem;
+  }
+  
+  #viewStudentTable {
+    width: 100%;
+  }
+  
+
+
+  /*on Hover Input Styles*/
+
+
+  #registerUsername:hover{
+    background: linear-gradient(to right, #00DED6, #7979F7);
+    color: white;
+  }
+  
+  #registerPassword:hover{
+    background: linear-gradient(to right, #00DED6, #7979F7);
+    color: white;
+  }
+  #repeatPassword:hover{
+    background: linear-gradient(to right, #00DED6, #7979F7);
+    color: white;
+  }
+
+  /*Placeholders Styles*/
+
+
+  /*Button Style*/
+
+  #viewStudentTable .btn {
+    font-size: 80%;
+    border-radius: 5rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+    padding: 1rem;
+    transition: all 0.2s;
+  }
+  
+  #createStudentButton{
+    background: linear-gradient(to right, #00DED6, #7979F7);
+    border: 0px;
+
+    margin-top: -5%;
+    margin-bottom: 5%;
+  }
+
+  /*Button on Hover*/
+
+  #createStudentButton:hover{
+    background: linear-gradient(to left, #00DED6, #7979F7);
+  }

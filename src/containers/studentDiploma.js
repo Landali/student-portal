@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import '../css/viewDiploma.css'
 import getStudent from '../services/getStudentbyId'
 import LoadingOverlay from 'react-loading-overlay'
 import BeatLoader from 'react-spinners/BarLoader'
@@ -55,6 +56,7 @@ class studentDiploma extends Component {
         return (
             <div>
                 <a
+                    id='backButton'
                     type="button" class="btn btn-primary"
                     href="/view-student"
                     style={{ marginRight: "-47%" }}>Return to Student List

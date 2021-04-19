@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
+import '../css/viewStudent.css'
 import BootstrapTable from 'react-bootstrap-table-next';
 import axios from 'axios';
 import listStudent from '../services/listStudent'
+import FormInput from '../components/FormInputs/formInput'
+import FormButton from '../components/FormButton/formButton'
 class studentList extends Component {
     constructor(props) {
         super(props)
@@ -47,27 +50,38 @@ class studentList extends Component {
             dataField: 'name',
             order: 'desc'
         }];
-        const products = [{
-            id: '1',
-            firstname: 'Allan',
-            lastname: 'Paz'
-        },
-        {
-            id: '2',
-            firstname: 'Danilo',
-            lastname: 'Paz'
-        }
-        ]
+
+        let createStudentButton = <a
+            id='createStudentButton'
+            className='btn btn-lg btn-primary btn-block text-uppercase'
+            href="/create-student"
+            style={{ marginRight: "-60%" }}>Create Student
+        </a>
+
         return (
-            <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                <BootstrapTable
-                    bootstrap4
-                    keyField="id"
-                    data={studentList}
-                    columns={columns}
-                    defaultSorted={defaultSorted}
-                />
-            </div >
+            <div id="viewStudentContainer" >
+                <div className="container" >
+                    <div className="row">
+                        <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                            <div id="cardViewStudent" className="card card-signin viewStudent my-5">
+                                <div className="card-body">
+                                    <h5 className="card-title text-center" style={{ fontSize: '30px', fontWeight: 'bold' }}>List of Students</h5>
+                                    <div id="viewStudentTable">
+                                        {createStudentButton}
+                                        <BootstrapTable
+                                            bootstrap4
+                                            keyField="id"
+                                            data={studentList}
+                                            columns={columns}
+                                            defaultSorted={defaultSorted}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         )
     }
 }

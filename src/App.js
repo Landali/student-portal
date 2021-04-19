@@ -17,7 +17,6 @@ class App extends Component {
 
 
   render() {
-    console.log('get user', this.state.user)
     return (
       <Router>
         <div className="App">

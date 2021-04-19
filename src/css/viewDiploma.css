@@ -1,0 +1,12 @@
+
+  /*Button Style*/
+#backButton{
+    background: linear-gradient(to right, #00DED6, #7979F7);
+    border: 0px;
+  }
+
+  /*Button on Hover*/
+
+  #backButton:hover{
+    background: linear-gradient(to left, #00DED6, #7979F7);
+  }

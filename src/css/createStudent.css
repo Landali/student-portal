@@ -143,7 +143,8 @@
   
   #createButton{
     background: linear-gradient(to right, #00DED6, #7979F7);
-    border: 0px
+    border: 0px;
+    margin-bottom: 2%;
   }
 
   /*Button on Hover*/

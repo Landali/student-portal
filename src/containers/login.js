@@ -5,7 +5,6 @@ import FormButton from '../components/FormButton/formButton'
 import login from '../services/login'
 import { Cookies } from 'react-cookie'
 const cookies = new Cookies()
-//const $ = window.$;
 class Login extends Component {
     constructor(props) {
         super(props)

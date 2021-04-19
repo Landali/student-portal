@@ -69,7 +69,6 @@ class createStudent extends Component {
             inputContainerClass={"input-field"}
             inputValue={firstname}
             inputType={"user"}
-            //inputId={"registerUsername"}
             inputId={"createFirstname"}
             inputClass={"form-control"}
             inputPlaceholder={"Firstname"}
@@ -84,7 +83,6 @@ class createStudent extends Component {
             inputContainerClass={"input-field"}
             inputValue={lastname}
             inputType={"user"}
-            // inputId={"registerPassword"}
             inputId={"createLastname"}
             inputClass={"form-control"}
             inputPlaceholder={"Lastname"}
@@ -103,6 +101,11 @@ class createStudent extends Component {
             buttonEnable={firstname === '' || lastname === '' ? false : true}
         />
 
+        let backViewStudent = <a
+        href="/view-student"
+        style={{ marginRight: "-45%", marginBottom:"" }}>{'Back to Student List'}
+    </a>
+
         return (
             <div id="createStudentContainer" >
                 <div className="container" >
@@ -115,6 +118,7 @@ class createStudent extends Component {
                                         {firstInput}
                                         {lastnameInput}
                                         {createButton}
+                                        {backViewStudent}
                                     </form>
                                 </div>
                             </div>

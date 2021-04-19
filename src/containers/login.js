@@ -2,14 +2,17 @@ import React, { Component } from 'react'
 import '../css/login.css'
 import FormInput from '../components/FormInputs/formInput'
 import FormButton from '../components/FormButton/formButton'
-
+import login from '../services/login'
+import { Cookies } from 'react-cookie'
+const cookies = new Cookies()
 //const $ = window.$;
 class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            cookieExpiration: 100000*120,
         }
 
     }
@@ -31,12 +34,26 @@ class Login extends Component {
 
 
     handleLoginSubmit = async (e) => {
-        let { username, password } = this.state
+        let { username, password, cookieExpiration } = this.state
         e.preventDefault();
         console.log("username", username)
         console.log("password", password)
-        const origin = window.location.origin
-        window.location.replace(`${origin}/view-student`)
+
+        if (!username || !password) {
+
+        } else {
+            await login({ username, password }).then((user) => {
+                console.log('User Login!', user)
+                if (user) {
+                    cookies.set(`${username}ct`, { key: user.username }, { path: '/', expires: new Date(Date.now() + cookieExpiration ) });
+                    const origin = window.location.origin
+                    window.location.replace(`${origin}/view-student`)
+                }
+            }).catch((error) => {
+                console.error('Creating user error:', error)
+            })
+        }
+
     }
 
     onKeyPress(event) {

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const createStudent = ({
+const createUser = ({
     username,
     password,
     source
@@ -17,4 +17,4 @@ const createStudent = ({
         return Promise.reject([])
     })
 
-export default createStudent
+export default createUser

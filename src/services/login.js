@@ -2,7 +2,7 @@
 
 import axios from 'axios'
 
-const getStudent = ({
+const loginUser = ({
     username,
     password,
 }) => axios
@@ -20,4 +20,4 @@ const getStudent = ({
         return Promise.reject({})
     })
 
-export default getStudent
+export default loginUser

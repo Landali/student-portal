@@ -5,7 +5,7 @@ const createStudent = ({
     password,
     source
 }) => axios
-    .post(`https://dvtbccva71.execute-api.us-east-1.amazonaws.com/dev/create-user/{username}/${username}`, {
+    .post(`https://dvtbccva71.execute-api.us-east-1.amazonaws.com/dev/create-user/${username}`, {
         username,
         password
     }).then((user) => {
